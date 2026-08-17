@@ -190,9 +190,9 @@ void Mbus::loop() {
 		  this->mbus_state_ = MBUS_STATE_RETRY_WAIT;
 		  break;
 	  }
-	  //checksum ok,
-	  //signalling to sensors that there is new data to parse in telegram
-	  //and releasing uart
+	  //checksum ok - decode the telegram once, here, for all sensors to read
+	  this->parse_telegram();
+	  //releasing uart
 	  mbus_uart_locked_ = false;
 	  this->mbus_state_ = MBUS_STATE_IDLE;
 	  this->telegram_count++;

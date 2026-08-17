@@ -1,6 +1,6 @@
 #pragma once
 
-#include "mbus_sensor.h"
+#include "../mbus.h"
 
 namespace esphome {
 namespace mbus {
